@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="styles.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+  </head>
+  <body hidden>
+    <img id="background" data-times="0">
+    <div id="beforeBackground" style="background: radial-gradient(circle, rgba(160,240,255,1) 0%, rgba(93,126,134,1) 50%, rgba(160,240,255,1) 100%);"></div>
+    <img id="logo" src="weather.png">
+    <div id="movingBorderRight"></div>
+    
+    <div id="weather">
+      <div id="text">
+      <p style="font-size: 25px">Let's get some weather info </p><hr>
+        <input type="text" id="cityname" placeholder="Enter City Name">
+        <input type="text" id="countryname" placeholder="Enter Country Name">
+
+        <select id="units">
+        	<option disabled selected>Units</option>
+        	<option value="metric">Celcius</option>
+        	<option value="imperial">Fahrenheit</option>
+        	<option value="">Kelvin</option>
+        </select>
+
+
+        <button id="search">SEARCH</button><br>
+
+        <button id="geo">Use my own location!</button>
+        <div id="infoGenerated">
+          <wrapper hidden>
+            <img id="icon"> <span></span> 
+            <div id="name"><p></p><img id="flagCode"></div> 
+            <div id="temp"></div>
+            <div id="localtime"></div>
+            <div id="humidity"></div>
+          </wrapper>
+      </div>
+     </div>
+    </div>
+
+    <div id="credit"><span>API's used: Javascript Geolocation, Google Custom Search, Pexels, OpenWeatherMap</span><span>Ⓒ All rights reserved. Made with love by Itay Shiff</span></div>
+
+
+
+  </body>
+ </html>
