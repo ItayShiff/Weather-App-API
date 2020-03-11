@@ -589,6 +589,14 @@ window.addEventListener('load', (event) => {
 		logo.style.width = text.offsetWidth/3*2.5 + 'px';
 		logo.style.left = (innerWidth-logo.clientWidth)/2 + 'px';
 	}
+	console.log(innerWidth);
+	console.log(innerHeight);
+	if (innerWidth<500 && innerHeight>720) {
+		text.style.width = '70%';
+		text.style.left = (innerWidth-text.offsetWidth)/2 + 'px';
+		logo.style.width = text.offsetWidth/3*2.5 + 'px';
+		logo.style.left = (innerWidth-logo.clientWidth)/2 + 'px';
+	}
 
 	//Moving border right animation
 	movingBorderRight.style.cssText = `
@@ -645,8 +653,8 @@ function borderAnimation() {
 }
 
 // 200ms After the page was resized, reload the page for correcting the positioning of all elements
-let CurrentWidth = innerWidth;
-let CurrentHeight = innerHeight;
-window.addEventListener('resize', () => setTimeout(() => (innerWidth!=CurrentWidth || innerWidth!=CurrentHeight) ? location.reload() : false, 150));
+// let CurrentWidth = innerWidth;
+// let CurrentHeight = innerHeight;
+// window.addEventListener('resize', () => setTimeout(() => (innerWidth!=CurrentWidth || innerWidth!=CurrentHeight) ? location.reload() : false, 150));
 
 credit.style.top = innerHeight - 30 + 'px';
