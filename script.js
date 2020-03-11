@@ -589,9 +589,8 @@ window.addEventListener('load', (event) => {
 		logo.style.width = text.offsetWidth/3*2.5 + 'px';
 		logo.style.left = (innerWidth-logo.clientWidth)/2 + 'px';
 	}
-	console.log(innerWidth);
-	console.log(innerHeight);
-	if (innerWidth<500 && innerHeight>720) {
+
+	if (innerHeight+250>innerWidth) {
 		text.style.width = '70%';
 		text.style.left = (innerWidth-text.offsetWidth)/2 + 'px';
 		logo.style.width = text.offsetWidth/3*2.5 + 'px';
