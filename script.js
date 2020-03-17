@@ -209,7 +209,7 @@ function MakeWeather() {
 				if (getComputedStyle(background).clipPath == 'circle(80% at 50% 50%)') clearInterval(clipBigger);
 			}, 15);
 			
-
+			
 			// Remove loading animations
 			clearInterval(rotatingCircle);		 			
 			circleLoad.remove();
@@ -318,10 +318,11 @@ function LoadingAnimations() {
 	loading.innerHTML = "Loading";
 
 	circleLoad.style.position = loading.style.position = 'absolute';
-	circleLoad.style.bottom = loading.style.bottom = '10px';
+	loading.style.bottom = '10px';
+	circleLoad.style.bottom = '20px';
 
 	loading.style.left = (text.offsetWidth-(loading.offsetWidth-circleLoad.offsetWidth))/2 + 'px';
-	circleLoad.style.left = loading.getBoundingClientRect().left - text.offsetLeft - 50 + 'px';
+	circleLoad.style.left = loading.getBoundingClientRect().left - text.getBoundingClientRect().left  - 50 + 'px';
 	
 
 	let UpOrDown = 0; // 0 = going up, 1 = going down
