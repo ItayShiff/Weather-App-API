@@ -231,7 +231,6 @@ function MakeWeather() {
 			  		wrapper.hidden = true; 
 			  		errorElem.innerHTML = `${err}`;
 			  		info.append(errorElem);
-			  		text.style.left = (innerWidth-text.clientWidth)/2 + 'px';
 			  })
 			  .then(result => {
 			  		if (result === undefined) return;
@@ -250,10 +249,7 @@ function MakeWeather() {
 
 				  	let rightSymbol = GetRightSymbol(units.options[units.selectedIndex].value);
 				  	temp.innerHTML = `The weather now in ${result.name} is: <u>${result.main.temp}°${rightSymbol}</u> but it actually feels like <u>${result.main.feels_like}°${rightSymbol}</u>`;
-				  	humidity.innerHTML = `The humidity now in ${result.name} is about <u>${result.main.humidity}%`;
-
-				  	text.style.left = (innerWidth-text.clientWidth)/2 + 'px';
-				  	logo.style.left = (innerWidth-logo.clientWidth)/2 + 'px';
+				  	humidity.innerHTML = `The humidity now in ${result.name} is about <u>${result.main.humidity}%`;			  	
 				}
 			  );
 		};
@@ -471,8 +467,6 @@ geo.onclick = function() {
 						  	let rightSymbol = GetRightSymbol(units.options[units.selectedIndex].value);
 						  	temp.innerHTML = `The weather now in ${city.value} is: <u>${result.main.temp}°${rightSymbol}</u> but it actually feels like <u>${result.main.feels_like}°${rightSymbol}</u>`;
 						  	humidity.innerHTML = `The humidity now in ${result.name} is about <u>${result.main.humidity}%`
-						  	text.style.left = (innerWidth-text.clientWidth)/2 + 'px';
-						  	logo.style.left = (innerWidth-logo.clientWidth)/2 + 'px';
 						  }
 				})
 
@@ -528,8 +522,6 @@ geo.onclick = function() {
 		  	let rightSymbol = GetRightSymbol(units.options[units.selectedIndex].value);
 		  	temp.innerHTML = `The weather now in ${city.value} is: <u>${result.main.temp}°${rightSymbol}</u> but it actually feels like <u>${result.main.feels_like}°${rightSymbol}</u>`;
 		  	humidity.innerHTML = `The humidity now in ${result.name} is about <u>${result.main.humidity}%`
-		  	text.style.left = (innerWidth-text.clientWidth)/2 + 'px';
-		  	logo.style.left = (innerWidth-logo.clientWidth)/2 + 'px';
 		  }
 	  });
 	}
@@ -551,21 +543,16 @@ window.addEventListener('load', (event) => {
 	document.body.hidden = false; // Initially the body is hidden, then this is used to avoid 'First Painting Bug' showing for X ms
 	
 	text.style.width = innerWidth/2.5 + 'px';
-
-	text.style.left = (innerWidth-text.offsetWidth)/2 + 'px';
 	text.style.top = (innerHeight-text.offsetHeight)/2 + 'px';
 
 	logo.style.width = text.offsetWidth/1.5 + 'px';
-	logo.style.height = text.getBoundingClientRect().top - 50 + 'px';
-	logo.style.left = (innerWidth-logo.clientWidth)/2 + 5 + 'px';
-	logo.style.top = text.getBoundingClientRect().top - logo.offsetHeight - 20 + 'px';
+	setTimeout(() => logo.style.top = text.getBoundingClientRect().top - logo.offsetHeight -20 + 'px', 0);	
+
 	background.style.position = beforeBackground.style.position = logo.style.position = 'absolute';
 
 	//Responsive notes
 	if (innerWidth<1700) {
 		text.style.width = innerWidth/2 + 'px';
-		text.style.left = (innerWidth-text.offsetWidth)/2 + 'px';
-		text.style.top = (innerHeight-text.offsetHeight)/2 + 'px';
 	}
     if (innerWidth<1150) {
     	credit.style.top = innerHeight - 60 + 'px';
@@ -578,23 +565,15 @@ window.addEventListener('load', (event) => {
 	}
 	if (innerWidth<1300) {
 		logo.style.width = text.offsetWidth/3*2.5 + 'px';
-		logo.style.left = (innerWidth-logo.clientWidth)/2 + 'px';
-	}
-	if (innerWidth<740) {
-		logo.style.height = text.getBoundingClientRect().top - 50 + 'px';
 	}
 	if (innerWidth<640) {
 		text.style.width = text.offsetWidth/3*4 + 'px';
-		text.style.left = (innerWidth-text.offsetWidth)/2 + 'px';
 		logo.style.width = text.offsetWidth/3*2.5 + 'px';
-		logo.style.left = (innerWidth-logo.clientWidth)/2 + 'px';
 	}
 
 	if (innerHeight+250>innerWidth) {
-		text.style.width = '70%';
-		text.style.left = (innerWidth-text.offsetWidth)/2 + 'px';
+		text.style.width = '90vw';
 		logo.style.width = text.offsetWidth/3*2.5 + 'px';
-		logo.style.left = (innerWidth-logo.clientWidth)/2 + 'px';
 	}
 
 	//Moving border right animation

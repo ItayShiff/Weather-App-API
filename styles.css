@@ -30,6 +30,9 @@ body {
 
 #logo {
 	z-index: 5;
+	transform: translateX(-50%);
+	left: 50%;
+	height: auto !important;
 }
 #background {
 	z-index: 2;
@@ -102,6 +105,8 @@ button.onup {
 	padding: 25px;
 	padding-bottom: 5px;
 	border-radius: 15px;
+	left: 50%;
+	transform: translateX(-50%);
 }
 #text p {
 	font-family: 'Ubuntu' !important;
@@ -204,4 +209,18 @@ input::placeholder {
 		font-size: 14px;
 	}
 	
+}
+#text > p {
+	font-size: 25px;
+}
+@media screen and (max-width:1200px) and (min-height:1200px) {
+	input {
+		width: 30%;
+	}
+	input::placeholder {
+		font-size: 30px;
+	}
+	p, button, #text, input, select {
+		font-size: 40px !important;
+	}
 }
