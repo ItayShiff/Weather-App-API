@@ -1,6 +1,6 @@
 /*
 async function check() {
-	let url = 'http://api.openweathermap.org/data/2.5/weather?q=Orlando&units=celcius&APPID=fb2fefe4ce6886c61bd1f92aef08735a';
+	let url = 'https://api.openweathermap.org/data/2.5/weather?q=Orlando&units=celcius&APPID=fb2fefe4ce6886c61bd1f92aef08735a';
 	let response = await fetch(url);
 
 	let result = await response.json(); // read response body and parse as JSON
@@ -222,7 +222,7 @@ function MakeWeather() {
 			
 
 			//API to get weather information according to the entered City & Country
-			fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city.value},${country.value}&units=${units.options[units.selectedIndex].value}&APPID=fb2fefe4ce6886c61bd1f92aef08735a`) 
+			fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city.value},${country.value}&units=${units.options[units.selectedIndex].value}&APPID=fb2fefe4ce6886c61bd1f92aef08735a`) 
 			  .then(response => {
 			  	if (response.ok) return response.json();
 			  	throw new Error(response.statusText);
@@ -364,7 +364,7 @@ geo.onclick = function() {
 	  geo.innerHTML = 'Use my own location!';
 	  let lat = pos.coords.latitude;
 	  let lon = pos.coords.longitude;
-	  fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units.options[units.selectedIndex].value}&APPID=fb2fefe4ce6886c61bd1f92aef08735a`)
+	  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units.options[units.selectedIndex].value}&APPID=fb2fefe4ce6886c61bd1f92aef08735a`)
 	  .then(response => {
 	  	if (response.ok) return response.json();
 	  	throw new Error(response.statusText);
